@@ -1,28 +1,43 @@
-// calculamos ganancias
-function calcularGanancias(principal, tasa, gananciaDiaria, meses) {
+class Inversion {
+  constructor(principal, tasaMensual, gananciaDiaria, meses) {
+    this.principal = principal;
+    this.tasaMensual = tasaMensual;
+    this.gananciaDiaria = gananciaDiaria;
+    this.meses = meses;
+  }
+
+  calcularGanancias() {
     let totalGanancias = 0;
-  
-    for (let i = 0; i < meses; i++) {
-      let gananciasMensuales = principal * tasa;
-  
-      gananciasMensuales += gananciaDiaria;
-  
+
+    for (let i = 0; i < this.meses; i++) {
+      let gananciasMensuales = this.principal * this.tasaMensual;
+
+      gananciasMensuales += this.gananciaDiaria;
+
       totalGanancias += gananciasMensuales;
-  
-      principal += gananciasMensuales;
+
+      this.principal += gananciasMensuales;
     }
-  
+
     return totalGanancias;
   }
- 
-  let principalInversion= prompt("¿Que monto desea invertir?");
-  principalInversion = parseFloat(principalInversion);
-  //let principalInicial = 100; // Numero de inversion
-  const tasaMensual = 0.24; // 24% de interés mensual
-  const gananciaDiaria = 0.80; // Ganancia diaria
-  const mesesInversion = 12; // Número de meses de inversión
-  
-  // Calculo ganancias totales
-  const gananciasTotales = calcularGanancias(principalInversion, tasaMensual, gananciaDiaria, mesesInversion);
+}
 
-  console.log(`Ganancias totales después de ${mesesInversion} meses: $${gananciasTotales.toFixed(2)}`);
+// Función para preguntar al usuario si desea calcular otra inversión
+function calcularOtraInversion() {
+  let respuesta = prompt("¿Desea calcular otra inversión? (Sí/No)").toLowerCase();
+  return respuesta === 'sí' || respuesta === 'si';
+}
+
+// Bucle para permitir cálculos múltiples
+do {
+  let principalInversion = prompt("¿Qué monto desea invertir?");
+  principalInversion = parseFloat(principalInversion);
+
+  const inversion = new Inversion(principalInversion, 0.24, 0.80, 12);
+
+  const gananciasTotales = inversion.calcularGanancias();
+
+  console.log(`Ganancias totales después de ${inversion.meses} meses: $${gananciasTotales.toFixed(2)}`);
+
+} while (calcularOtraInversion());
