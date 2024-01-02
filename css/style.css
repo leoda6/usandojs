@@ -1,0 +1,17 @@
+
+
+.div1{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .label{
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+
+.letras{
+    font-size: larger;
+    
+}

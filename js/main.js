@@ -1,7 +1,7 @@
 class Inversion {
   constructor(principal, tasaMensual, gananciaDiaria, meses) {
     this.principal = principal;
-    this.tasaMensual = tasaMensual;
+    this.tasaMensual = tasaMensual / 100; // Convierto a decimal
     this.gananciaDiaria = gananciaDiaria;
     this.meses = meses;
   }
@@ -19,41 +19,29 @@ class Inversion {
       this.principal += gananciasMensuales;
     }
 
-    return totalGanancias;
+    return totalGanancias.toFixed(2);
   }
 }
 
-// Array para almacenar inversiones
-let inversiones = [];
+function calcularInversion() {
+  const montoInversion = parseFloat(document.getElementById('montoInversion').value);
+  const tasaMensual = parseFloat(document.getElementById('tasaMensual').value);
+  const gananciaDiaria = parseFloat(document.getElementById('gananciaDiaria').value);
 
-let respuesta = "si";
-do {
-  let principalInversion = prompt("¿Qué monto desea invertir? (Mínimo 100,000 pesos)");
-  principalInversion = parseFloat(principalInversion);
-
-  //la inversión sea de al menos 100,000 pesos
-  if (principalInversion < 100000) {
-    alert("La inversión debe ser de al menos 100,000 pesos. Intente nuevamente.");
-    continue;
+  if (isNaN(montoInversion) || isNaN(tasaMensual) || isNaN(gananciaDiaria) || montoInversion < 100000) {
+    alert("Por favor, ingrese valores válidos y asegúrese de que la inversión sea de al menos 100,000 pesos.");
+    return;
   }
 
-  const inversion = new Inversion(principalInversion, 0.10, 0.80, 12);
-  inversiones.push(inversion); // Almacenar la inversión en el array
-
+  const inversion = new Inversion(montoInversion, tasaMensual, gananciaDiaria, 12);
   const gananciasTotales = inversion.calcularGanancias();
 
-  console.log(`Ganancias totales después de ${inversion.meses} meses: $${gananciasTotales.toFixed(2)}`);
+  document.getElementById('resultados').value = gananciasTotales;
+}
 
-  respuesta = prompt("¿Desea calcular otra inversión? (Sí/No)").toLowerCase();
-} while (respuesta === "si" || respuesta === "sí");
-
-// Obtener la inversión con mayor ganancia
-if (inversiones.length > 0) {
-  const inversionMayorGanancia = inversiones.reduce((prev, current) =>
-    prev.calcularGanancias() > current.calcularGanancias() ? prev : current
-  );
-
-  console.log(`La inversión con mayor ganancia fue de $${inversionMayorGanancia.calcularGanancias().toFixed(2)}`);
-} else {
-  console.log("No se realizaron inversiones.");
+function nuevaInversion() {
+  document.getElementById('montoInversion').value = '100000';
+  document.getElementById('tasaMensual').value = '10';
+  document.getElementById('gananciaDiaria').value = '0.24';
+  document.getElementById('resultados').value = '';
 }
