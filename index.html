@@ -7,35 +7,34 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js" defer></script>
 </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Inversiones</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
 <body>
-    <div class="div1">
-        <h1>Calculadora de Inversiones</h1>
-        <div>
-          <label for="montoInversion" class="letras label">Monto de la Inversión: </label>
-          <select id="montoInversion">
-            <option value="100000">100,000</option>
-            <option value="200000">200,000</option>
-            <option value="300000">300,000</option>
-          </select>
-        </div>
-        <div>
-          <label for="tasaMensual" class="letras label">Tasa Mensual (%): </label>
-          <select id="tasaMensual">
-            <option value="10">10</option>
-          </select>
-        </div>
-        <div>
-          <label for="gananciaDiaria" class="letras label">Ganancia Diaria (%): </label>
-          <select id="gananciaDiaria">
-            <option value="0.24">0.24</option>
-          </select>
-        </div>
-        <button onclick="calcularInversion()">Calcular Inversión</button>
-        <button onclick="nuevaInversion()">Nueva Inversión</button>
-        <div>
-          <label for="resultados" class="letras label">Ganancias Totales: $</label>
-          <input type="text" id="resultados" readonly>
-        </div>
+  <div id="app" class="div1">
+      <h1>Calculadora de Inversiones</h1>
+      <div>
+        <label for="montoInversion" class="letras label">Monto de la Inversión: </label>
+        <select id="montoInversion"></select>
       </div>
+      <div>
+        <label for="tasaMensual" class="letras label">Tasa Mensual (%): </label>
+        <select id="tasaMensual"></select>
+      </div>
+      <div>
+        <label for="gananciaDiaria" class="letras label">Ganancia Diaria (%): </label>
+        <select id="gananciaDiaria"></select>
+      </div>
+      <button id="calcularBtn">Calcular Inversión</button>
+      <button id="nuevaInversionBtn">Nueva Inversión</button>
+      <div>
+        <label for="resultados" class="letras label">Ganancias Totales: $</label>
+        <input type="text" id="resultados" readonly>
+      </div>
+  </div>
+  <script src="./js/main.js" defer></script>
 </body>
 </html>
