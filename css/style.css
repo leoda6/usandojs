@@ -1,10 +1,12 @@
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 body {
-    background-color: #f4f4f4; 
+    background-color: #f0f5f9; 
+    font-family: 'Roboto', Arial, sans-serif; 
 }
 
 .div1 {
@@ -13,37 +15,88 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px;
+    padding: 50px; 
 }
 
 .div1 .label {
     display: block;
-    margin-bottom: 15px; 
-    font-weight: bold; 
-    color: #333; 
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
 }
 
 .letras {
-    font-size: 18px; 
-    color: #555; 
+    font-size: 18px;
+    color: #555;
 }
 
-/* Estilos para los botones */
+
 button {
+    padding: 15px 30px; 
+    margin-top: 20px;
+    background-color: #2e7d32; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+button:hover {
+    background-color: #1b5e20; 
+}
+
+input {
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    transition: border-color 0.3s ease; 
+}
+
+input:focus {
+    outline: none;
+    border-color: #4CAF50; 
+}
+
+
+
+/* Estilos para el convertidor de divisas */
+#app div:last-child {
+    margin-top: 30px;
+  }
+  
+  #app div:last-child h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #app div:last-child label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #app div:last-child select,
+  #app div:last-child input {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #app div:last-child button {
     padding: 10px 20px;
     margin-top: 10px;
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049; 
-}
-
-input {
+  }
+  
+  #app div:last-child button:hover {
+    background-color: #45a049;
+  }
+  
+  #app div:last-child input[type="text"] {
     padding: 10px;
     margin-top: 10px;
-}
+  }

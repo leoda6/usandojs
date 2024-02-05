@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalculadorGanancias</title>
+    <title>Calculadora de Inversiones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js" defer></script>
 </head>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Inversiones</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
 <body>
+  <div class="container">
   <div id="app" class="div1">
       <h1>Calculadora de Inversiones</h1>
       <div>
@@ -35,6 +31,41 @@
         <input type="text" id="resultados" readonly>
       </div>
   </div>
-  <script src="./js/main.js" defer></script>
+  <div id="app" class="div1">
+    <div>
+    </div>
+    <div>
+      <h2>Convertidor de Divisas</h2>
+      <div>
+        <label for="montoConversion" class="letras label">Monto a Convertir: </label>
+        <input type="number" id="montoConversion" placeholder="Ingrese el monto">
+      </div>
+      <div>
+        <label for="monedaOrigen" class="letras label">Moneda de Origen: </label>
+        <select id="monedaOrigen">
+          <option value="arg">Peso (ARG)</option>
+          <option value="usd">Dólar (USD)</option>
+          <option value="eur">Euro (EUR)</option>
+          <option value="brl">Real (BRL)</option>
+        </select>
+      </div>
+      <div>
+        <label for="monedaOrigen" class="letras label">Moneda a convertir: </label>
+        <select id="monedaDestino">
+          <option value="arg">Peso (ARG)</option>
+          <option value="usd">Dólar (USD)</option>
+          <option value="eur">Euro (EUR)</option>
+          <option value="brl">Real (BRL)</option>
+        </select>
+      </div>
+      <button id="convertirBtn">Convertir</button>
+      <div>
+        <label for="resultadoConversion" class="letras label">Resultado: $</label>
+        <input type="text" id="resultadoConversion" readonly>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
